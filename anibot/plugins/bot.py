@@ -336,6 +336,7 @@ async def db_cleanup(client: Client, message: Message, mdata: dict):
         await x.reply_text(entries)
     await x.edit_text(msg)
 
+    """
 
 @anibot.on_message(
     filters.command(['start', f'start{BOT_NAME}'], prefixes=trg)
@@ -360,10 +361,10 @@ async def start_(client: Client, message: Message, mdata: dict):
             await USERS.insert_one({"id": user, "user": usertitle})
             await clog(
                 "ANIBOT",
-f"""New User started bot
+fNew User started bot
 
 <a url="tg://user?id={user}">{usertitle}</a>
-ID: `{user}`""",
+ID: `{user}`,
                 "NEW_USER"
             )
         if len(mdata['text'].split())!=1:
@@ -493,14 +494,14 @@ Use /feedback cmd to contact bot owner'''
         await client.send_message(gid, text=text, reply_markup=buttons)
         await client.send_message(
             gid,
-            text="""Owners / Sudos can also use
+            text=Owners / Sudos can also use
 
 - __/term__ `to run a cmd in terminal`
 - __/eval__ `to run a python code like `__/eval print('UwU')__` `
 - __/stats__ `to get stats on bot like no. of users, grps and authorised users`
 - __/dbcleanup__ `to remove obsolete/useless entries in database`
 
-Apart from above shown cmds"""
+Apart from above shown cmds
         )
     else:
         if gid==id_:
@@ -517,7 +518,7 @@ Apart from above shown cmds"""
                         )
                     ]]
                 )
-            )
+            )"""
 
 
 @anibot.on_message(
